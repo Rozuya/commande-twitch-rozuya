@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations • Le Grimoire de Rozuya</title>
+    
+    <!-- SEO & Métadonnées de Partage -->
+    <meta name="description" content="Découvrez les secrets et informations sur Rozuya grâce aux commandes du grimoire.">
+    <meta name="keywords" content="Rozuya, Twitch, Infos, Métier, Epic Games, Commandes, Grimoire">
+    <meta name="theme-color" content="#9146FF">
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Informations • Le Grimoire de Rozuya">
+    <meta property="og:description" content="Les parchemins de savoir sur le parcours et les identifiants de Rozuya.">
+    <meta property="og:image" content="assets/book-cover.png">
+
+    <!-- Fichiers de style et favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Système de particules en arrière-plan -->
+    <canvas id="magic-canvas"></canvas>
+    
+    <!-- Curseur plume magique -->
+    <div id="custom-cursor"></div>
+    
+    <!-- Zone de notifications (Toasts) -->
+    <div id="toast-container" class="notification-container"></div>
+
+    <!-- Conteneur Principal du Grimoire -->
+    <main class="main-container">
+        <div class="grimoire">
+            
+            <!-- PAGE GAUCHE : Recherche et thématique -->
+            <section class="book-page left">
+                <h1>ℹ️ Infos</h1>
+                <h2>Savoir & Sagesse</h2>
+                
+                <!-- Sablier Magique SVG (Thème Infos / Temps / Connaissance) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" style="filter: drop-shadow(0 0 10px rgba(145,70,255,0.3)); margin: 25px auto; display: block;">
+                    <!-- Cercle magique externe -->
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="8 4" />
+                    <!-- Sablier stylisé -->
+                    <path d="M35 25 L65 25 L65 30 L53 50 L65 70 L65 75 L35 75 L35 70 L47 50 L35 30 Z" fill="none" stroke="#9146FF" stroke-width="2.5" stroke-linejoin="round" />
+                    <!-- Sable magique qui s'écoule -->
+                    <path d="M38 28 L62 28 L50 48 Z" fill="#d4af37" opacity="0.6" />
+                    <path d="M48 52 L52 52 L58 72 L42 72 Z" fill="#d4af37" opacity="0.8" />
+                    <!-- Petites étincelles de temps -->
+                    <circle cx="50" cy="50" r="1.5" fill="#d4af37" />
+                    <circle cx="50" cy="58" r="1.5" fill="#d4af37" />
+                    <circle cx="50" cy="64" r="1.5" fill="#d4af37" />
+                </svg>
+
+                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-bottom: 25px; line-height: 1.6; padding: 0 10px;">
+                    "Consulte les parchemins d'information pour en apprendre plus sur le parcours de Rozuya et ses coordonnées de jeu."
+                </p>
+
+                <!-- Barre de recherche interactive -->
+                <div class="search-container">
+                    <input type="text" id="search-commands" class="search-bar" placeholder="Rechercher une information..." autocomplete="off">
+                </div>
+
+                <!-- Bouton Retour -->
+                <a href="index.html" class="btn-back">⬅ Fermer et revenir au sommaire</a>
+            </section>
+
+            <!-- PAGE DROITE : Liste des Commandes Infos -->
+            <section class="book-page right">
+                <h3>Chroniques de Savoir</h3>
+                
+                <div class="commands-container">
+                    
+                    <!-- Commande !taf -->
+                    <div class="command-card">
+                        <div class="command-info">
+                            <span class="trigger">!taf</span>
+                            <span class="description">Découvrir ce que je fais dans la vie (mon métier, mes activités).</span>
+                        </div>
+                        <button class="btn-copy" data-command="!taf">📋 Copier</button>
+                    </div>
+
+                    <!-- Commande !epic -->
+                    <div class="command-card">
+                        <div class="command-info">
+                            <span class="trigger">!epic</span>
+                            <span class="description">Afficher mon pseudo officiel Epic Games pour jouer ensemble.</span>
+                        </div>
+                        <button class="btn-copy" data-command="!epic">📋 Copier</button>
+                    </div>
+
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2026 Rozuya • Le Grimoire des Commandes Twitch</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
