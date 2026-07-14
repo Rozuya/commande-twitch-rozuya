@@ -5,144 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Grimoire de Rozuya • Commandes Twitch</title>
     
+    <!-- SEO & Métadonnées de Partage -->
     <meta name="description" content="Explorez le Grimoire interactif et magique de Rozuya. Trouvez et copiez instantanément toutes les commandes du chat Twitch.">
     <meta name="keywords" content="Rozuya, Twitch, Commandes, Grimoire, Stream, Discord, Chat, Fantasy">
     <meta name="theme-color" content="#9146FF">
     
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Le Grimoire de Rozuya • Commandes Twitch">
     <meta property="og:description" content="Découvrez l'ensemble des commandes magiques utilisables sur le stream de Rozuya.">
 
+    <!-- Fichiers de style -->
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Cadre du Lecteur Magique */
-        .audio-player {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            margin: 25px auto 0 auto;
-            padding: 10px 18px;
-            border-radius: 8px;
-            
-            /* Plaque en vieux parchemin sombre / cadre or double ligne */
-            background: rgba(74, 59, 44, 0.05);
-            border: 2px double rgba(212, 175, 55, 0.6);
-            box-shadow: inset 0 0 15px rgba(145, 70, 255, 0.04), 0 2px 8px rgba(0, 0, 0, 0.05);
-            
-            max-width: 250px;
-            position: relative;
-            z-index: 999;
-            pointer-events: auto;
-        }
-
-        /* Bouton Play/Pause (Sceau d'or magique) */
-        .audio-player button {
-            background: linear-gradient(135deg, #e5c060, #b08d2b); /* Dégradé d'or */
-            border: 1px solid #4a3b2c;
-            color: #1a0f05;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.3);
-            transition: all 0.2s ease;
-            padding: 0;
-            line-height: 1;
-            user-select: none;
-        }
-
-        .audio-player button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-            background: linear-gradient(135deg, #f2d479, #cfa83c);
-        }
-
-        .audio-player button:active {
-            transform: scale(0.95);
-        }
-
-        /* Rail de la barre de volume (Cordon de cuir) */
-        .audio-player input[type="range"] {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 100px;
-            height: 4px;
-            background: rgba(74, 59, 44, 0.25); /* Ligne marron cuir */
-            border-radius: 2px;
-            outline: none;
-            cursor: pointer;
-        }
-
-        /* La Gemme Violette Magique (Curseur pour Chrome, Safari, Edge) */
-        .audio-player input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #9146FF; /* Violet magique Twitch */
-            border: 2px solid #d4af37; /* Cerclage d'or */
-            box-shadow: 0 0 8px rgba(145, 70, 255, 0.8);
-            transition: transform 0.1s ease, box-shadow 0.1s ease;
-        }
-
-        .audio-player input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.25);
-            box-shadow: 0 0 12px rgba(145, 70, 255, 1);
-        }
-
-        /* La Gemme Violette Magique (Curseur pour Firefox) */
-        .audio-player input[type="range"]::-moz-range-thumb {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #9146FF;
-            border: 2px solid #d4af37;
-            box-shadow: 0 0 8px rgba(145, 70, 255, 0.8);
-            transition: transform 0.1s ease, box-shadow 0.1s ease;
-            cursor: pointer;
-        }
-
-        .audio-player input[type="range"]::-moz-range-thumb:hover {
-            transform: scale(1.25);
-            box-shadow: 0 0 12px rgba(145, 70, 255, 1);
-        }
-
-        /* Texte du pourcentage de volume */
-        .audio-player span {
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            color: #4a3b2c; /* Couleur écriture grimoire */
-            font-weight: bold;
-            min-width: 38px;
-            text-align: right;
-            user-select: none;
-        }
-    </style>
 </head>
 <body>
 
-    <audio id="background-music" loop preload="auto">
-        <source src="l-eveil-du-grimoire.mp3" type="audio/mpeg">
-    </audio>
-
+    <!-- Système de particules -->
     <canvas id="magic-canvas"></canvas>
+    <div id="custom-cursor"></div>
     <div id="toast-container" class="notification-container"></div>
 
     <main class="main-container">
         <div class="grimoire">
             
+            <!-- PAGE GAUCHE -->
             <section class="book-page left">
                 <h1>Le Grimoire</h1>
                 <h2>Des Commandes</h2>
                 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="130" height="130" style="filter: drop-shadow(0 0 12px #9146FF); margin: 20px auto 10px auto; display: block;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="130" height="130" style="filter: drop-shadow(0 0 12px #9146FF); margin: 30px auto; display: block;">
                     <circle cx="50" cy="50" r="44" fill="none" stroke="#d4af37" stroke-width="2" stroke-dasharray="6 3" />
                     <circle cx="50" cy="50" r="38" fill="none" stroke="#9146FF" stroke-width="1.5" />
                     <path d="M32 68 L40 38 L50 52 L60 38 L68 68 Z" fill="none" stroke="#d4af37" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
@@ -151,17 +42,13 @@
                     <circle cx="74" cy="38" r="2.5" fill="#9146FF" />
                 </svg>
 
-                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-top: 10px; line-height: 1.6; padding: 0 15px; font-size: 0.95rem;">
+                <!-- Message d'introduction adapté (sans mention de tourner les pages) -->
+                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-top: 20px; line-height: 1.7; padding: 0 15px;">
                     "Aventurier du chat, explore les chapitres de ce grimoire ancestral pour invoquer les pouvoirs et commandes du royaume de Rozuya."
                 </p>
-
-                <div class="audio-player">
-                    <button id="play-pause-btn" type="button" title="Jouer / Pause">▶</button>
-                    <input type="range" id="volume-slider" min="0" max="100" value="15" title="Volume">
-                    <span id="volume-percent">15%</span>
-                </div>
             </section>
 
+            <!-- PAGE DROITE -->
             <nav class="book-page right">
                 <h3>Sommaire</h3>
                 <div class="menu-grid">
@@ -180,47 +67,5 @@
     </footer>
 
     <script src="script.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const audio = document.getElementById("background-music");
-            const playPauseBtn = document.getElementById("play-pause-btn");
-            const volumeSlider = document.getElementById("volume-slider");
-            const volumePercent = document.getElementById("volume-percent");
-
-            if (audio && playPauseBtn && volumeSlider && volumePercent) {
-                
-                // Volume initial (15%)
-                audio.volume = volumeSlider.value / 100;
-                volumePercent.textContent = volumeSlider.value + "%";
-
-                // Play / Pause au clic
-                playPauseBtn.addEventListener("click", (e) => {
-                    e.stopPropagation(); 
-                    
-                    if (audio.paused) {
-                        audio.play()
-                            .then(() => {
-                                playPauseBtn.innerHTML = "⏸"; // Symbole pause propre
-                            })
-                            .catch(error => {
-                                console.warn("Lecture bloquée :", error);
-                                alert("⚠️ Pour des raisons de sécurité de ton navigateur, clique n'importe où sur le grimoire d'abord, puis réessaye !");
-                            });
-                    } else {
-                        audio.pause();
-                        playPauseBtn.innerHTML = "▶"; // Symbole play propre
-                    }
-                });
-
-                // Réglage et affichage dynamique du volume
-                volumeSlider.addEventListener("input", (e) => {
-                    const volumeValue = e.target.value;
-                    audio.volume = volumeValue / 100;
-                    volumePercent.textContent = volumeValue + "%";
-                });
-            }
-        });
-    </script>
 </body>
 </html>
