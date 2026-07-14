@@ -3,61 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informations • Le Grimoire de Rozuya</title>
+    <title>Le Grimoire • Infos</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <canvas id="magic-canvas"></canvas>
-    <div id="custom-cursor"></div>
-    <div id="toast-container" class="notification-container"></div>
+    <div id="toast-container" class="toast-container"></div>
 
     <main class="main-container">
         <div class="grimoire">
             
-            <!-- PAGE GAUCHE -->
+            <!-- PAGE GAUCHE : RECHERCHE -->
             <section class="book-page left">
                 <h1>ℹ️ Infos</h1>
-                <h2>Savoir & Sagesse</h2>
+                <h2>Savoirs du Royaume</h2>
                 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" style="filter: drop-shadow(0 0 10px rgba(145,70,255,0.3)); margin: 25px auto; display: block;">
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="8 4" />
-                    <path d="M35 25 L65 25 L65 30 L53 50 L65 70 L65 75 L35 75 L35 70 L47 50 L35 30 Z" fill="none" stroke="#9146FF" stroke-width="2.5" stroke-linejoin="round" />
-                    <path d="M38 28 L62 28 L50 48 Z" fill="#d4af37" opacity="0.6" />
-                    <path d="M48 52 L52 52 L58 72 L42 72 Z" fill="#d4af37" opacity="0.8" />
-                    <circle cx="50" cy="50" r="1.5" fill="#d4af37" />
-                    <circle cx="50" cy="58" r="1.5" fill="#d4af37" />
-                    <circle cx="50" cy="64" r="1.5" fill="#d4af37" />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" class="grimoire-emblem">
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#9146FF" stroke-width="1.5" />
+                    <rect x="38" y="38" width="24" height="30" fill="none" stroke="#d4af37" stroke-width="2" />
+                    <line x1="44" y1="46" x2="56" y2="46" stroke="#9146FF" stroke-width="2" />
+                    <line x1="44" y1="54" x2="56" y2="54" stroke="#d4af37" stroke-width="2" />
+                    <circle cx="50" cy="26" r="4" fill="#d4af37" />
                 </svg>
 
-                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-bottom: 25px; line-height: 1.6; padding: 0 10px;">
-                    "Consulte les parchemins d'information pour en apprendre plus sur le parcours de Rozuya et ses coordonnées de jeu."
+                <p class="grimoire-intro">
+                    "Renseigne-toi sur le planning des lives, les configurations secrètes et les règles établies ici."
                 </p>
 
                 <div class="search-container">
-                    <input type="text" id="search-commands" class="search-bar" placeholder="Rechercher une information..." autocomplete="off">
+                    <input type="text" id="search-commands" class="search-input" placeholder="Rechercher une info...">
                 </div>
 
-                <a href="index.html" class="btn-back">⬅ Fermer et revenir au sommaire</a>
+                <a href="index.html" class="back-link">⬅ Fermer et revenir au sommaire</a>
             </section>
 
-            <!-- PAGE DROITE -->
+            <!-- PAGE DROITE : LISTE -->
             <section class="book-page right">
-                <h3>Chroniques de Savoir</h3>
-                <div class="commands-container">
+                <h3>Chroniques de l'Écran</h3>
+                
+                <div class="command-list">
                     <div class="command-card">
-                        <div class="command-info">
-                            <span class="trigger">!taf</span>
-                            <span class="description">Découvrir ce que je fais dans la vie (mon métier, mes activités).</span>
+                        <div class="command-details">
+                            <div class="command-trigger">!planning</div>
+                            <div class="command-desc">Affiche l'emploi du temps et les heures des prochaines diffusions.</div>
                         </div>
-                        <button class="btn-copy" data-command="!taf">📋 Copier</button>
+                        <button class="copy-btn" data-command="!planning">Copier</button>
                     </div>
+
                     <div class="command-card">
-                        <div class="command-info">
-                            <span class="trigger">!epic</span>
-                            <span class="description">Afficher mon pseudo officiel Epic Games pour jouer ensemble.</span>
+                        <div class="command-details">
+                            <div class="command-trigger">!sub</div>
+                            <div class="command-desc">Soutiens l'aventure et débloque les avantages exclusifs d'abonné.</div>
                         </div>
-                        <button class="btn-copy" data-command="!epic">📋 Copier</button>
+                        <button class="copy-btn" data-command="!sub">Copier</button>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-details">
+                            <div class="command-trigger">!config</div>
+                            <div class="command-desc">Liste du matériel informatique et des périphériques magiques de Rozuya.</div>
+                        </div>
+                        <button class="copy-btn" data-command="!config">Copier</button>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-details">
+                            <div class="command-trigger">!don</div>
+                            <div class="command-desc">Contribue financièrement à l'amélioration constante de la chaîne.</div>
+                        </div>
+                        <button class="copy-btn" data-command="!don">Copier</button>
                     </div>
                 </div>
             </section>
