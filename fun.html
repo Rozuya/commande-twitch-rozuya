@@ -3,62 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun • Le Grimoire de Rozuya</title>
+    <title>Le Grimoire • Fun</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <canvas id="magic-canvas"></canvas>
-    <div id="custom-cursor"></div>
-    <div id="toast-container" class="notification-container"></div>
+    <div id="toast-container" class="toast-container"></div>
 
     <main class="main-container">
         <div class="grimoire">
             
-            <!-- PAGE GAUCHE -->
+            <!-- PAGE GAUCHE : RECHERCHE -->
             <section class="book-page left">
                 <h1>😂 Fun</h1>
-                <h2>Sortilèges de Joie</h2>
+                <h2>Sortilèges Amusants</h2>
                 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" style="filter: drop-shadow(0 0 10px rgba(145,70,255,0.3)); margin: 25px auto; display: block;">
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="5 3" />
-                    <path d="M44 25 L56 25 L56 35 L68 62 A16 16 0 1 1 32 62 L44 35 Z" fill="none" stroke="#9146FF" stroke-width="2.5" stroke-linejoin="round" />
-                    <line x1="42" y1="25" x2="58" y2="25" stroke="#d4af37" stroke-width="3" />
-                    <path d="M35 60 Q43 57 50 60 T65 60 A12 12 0 0 1 35 60" fill="#9146FF" opacity="0.6" />
-                    <circle cx="43" cy="48" r="2" fill="#d4af37" />
-                    <circle cx="56" cy="42" r="3" fill="#d4af37" />
-                    <circle cx="48" cy="35" r="1.5" fill="#9146FF" />
-                    <polygon points="68,32 70,36 74,37 70,38 68,42 66,38 62,37 66,36" fill="#d4af37"/>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" class="grimoire-emblem">
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#9146FF" stroke-width="1.5" />
+                    <path d="M35,45 Q40,35 45,45" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M55,45 Q60,35 65,45" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M30,60 Q50,80 70,60" fill="none" stroke="#9146FF" stroke-width="3" stroke-linecap="round"/>
                 </svg>
 
-                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-bottom: 25px; line-height: 1.6; padding: 0 10px;">
-                    "Invoque la bonne humeur et anime le chat à l'aide de ces incantations loufoques."
+                <p class="grimoire-intro">
+                    "Invoque le rire, la surprise ou l'affection de tes camarades de chat à l'aide de ces petits rituels drôles."
                 </p>
 
                 <div class="search-container">
-                    <input type="text" id="search-commands" class="search-bar" placeholder="Rechercher une commande fun..." autocomplete="off">
+                    <input type="text" id="search-commands" class="search-input" placeholder="Rechercher un sortilège...">
                 </div>
 
-                <a href="index.html" class="btn-back">⬅ Fermer et revenir au sommaire</a>
+                <a href="index.html" class="back-link">⬅ Fermer et revenir au sommaire</a>
             </section>
 
-            <!-- PAGE DROITE -->
+            <!-- PAGE DROITE : LISTE -->
             <section class="book-page right">
-                <h3>Farces & Célébrations</h3>
-                <div class="commands-container">
+                <h3>Rituels de Taverne</h3>
+                
+                <div class="command-list">
                     <div class="command-card">
-                        <div class="command-info">
-                            <span class="trigger">!lurk</span>
-                            <span class="description">Envoyer automatiquement un message de soutien bienveillant lorsque vous partez dans l'ombre.</span>
+                        <div class="command-details">
+                            <div class="command-trigger">!love</div>
+                            <div class="command-desc">Calcule ton taux d'amour et de compatibilité avec un autre spectateur.</div>
                         </div>
-                        <button class="btn-copy" data-command="!lurk">📋 Copier</button>
+                        <button class="copy-btn" data-command="!love [pseudo]">Copier</button>
                     </div>
+
                     <div class="command-card">
-                        <div class="command-info">
-                            <span class="trigger">!gg</span>
-                            <span class="description">Afficher l'emote GG triomphante accompagnée de l'avatar de Rozuya.</span>
+                        <div class="command-details">
+                            <div class="command-trigger">!hug</div>
+                            <div class="command-desc">Donne un câlin chaleureux et virtuel à la cible de ton choix.</div>
                         </div>
-                        <button class="btn-copy" data-command="!gg">📋 Copier</button>
+                        <button class="copy-btn" data-command="!hug [pseudo]">Copier</button>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-details">
+                            <div class="command-trigger">!slap</div>
+                            <div class="command-desc">Gifle gentiment quelqu'un avec un objet loufoque aléatoire.</div>
+                        </div>
+                        <button class="copy-btn" data-command="!slap [pseudo]">Copier</button>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-details">
+                            <div class="command-trigger">!citation</div>
+                            <div class="command-desc">Affiche une réplique mémorable ou une perle drôle dite en live.</div>
+                        </div>
+                        <button class="copy-btn" data-command="!citation">Copier</button>
                     </div>
                 </div>
             </section>
