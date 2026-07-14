@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun • Le Grimoire de Rozuya</title>
+    
+    <!-- SEO & Métadonnées de Partage -->
+    <meta name="description" content="Découvrez les commandes amusantes et interactives du chat Twitch de Rozuya.">
+    <meta name="keywords" content="Rozuya, Twitch, Fun, Humour, Lurk, GG, Commandes, Grimoire">
+    <meta name="theme-color" content="#9146FF">
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fun • Le Grimoire de Rozuya">
+    <meta property="og:description" content="Les sortilèges amusants pour animer et faire rire le chat de Rozuya.">
+    <meta property="og:image" content="assets/book-cover.png">
+
+    <!-- Fichiers de style et favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Système de particules en arrière-plan -->
+    <canvas id="magic-canvas"></canvas>
+    
+    <!-- Curseur plume magique -->
+    <div id="custom-cursor"></div>
+    
+    <!-- Zone de notifications (Toasts) -->
+    <div id="toast-container" class="notification-container"></div>
+
+    <!-- Conteneur Principal du Grimoire -->
+    <main class="main-container">
+        <div class="grimoire">
+            
+            <!-- PAGE GAUCHE : Recherche et thématique -->
+            <section class="book-page left">
+                <h1>😂 Fun</h1>
+                <h2>Sortilèges de Joie</h2>
+                
+                <!-- Fiole d'Élixir Magique SVG (Thème Fun / Humour / Potion) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" style="filter: drop-shadow(0 0 10px rgba(145,70,255,0.3)); margin: 25px auto; display: block;">
+                    <!-- Cercle magique externe -->
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="5 3" />
+                    <!-- Fiole de potion -->
+                    <path d="M44 25 L56 25 L56 35 L68 62 A16 16 0 1 1 32 62 L44 35 Z" fill="none" stroke="#9146FF" stroke-width="2.5" stroke-linejoin="round" />
+                    <line x1="42" y1="25" x2="58" y2="25" stroke="#d4af37" stroke-width="3" />
+                    <!-- Liquide magique bouillonnant -->
+                    <path d="M35 60 Q43 57 50 60 T65 60 A12 12 0 0 1 35 60" fill="#9146FF" opacity="0.6" />
+                    <!-- Bulles et étoiles magiques -->
+                    <circle cx="43" cy="48" r="2" fill="#d4af37" />
+                    <circle cx="56" cy="42" r="3" fill="#d4af37" />
+                    <circle cx="48" cy="35" r="1.5" fill="#9146FF" />
+                    <polygon points="68,32 70,36 74,37 70,38 68,42 66,38 62,37 66,36" fill="#d4af37"/>
+                </svg>
+
+                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-bottom: 25px; line-height: 1.6; padding: 0 10px;">
+                    "Invoque la bonne humeur et anime le chat à l'aide de ces incantations loufoques et bienveillantes."
+                </p>
+
+                <!-- Barre de recherche interactive -->
+                <div class="search-container">
+                    <input type="text" id="search-commands" class="search-bar" placeholder="Rechercher une commande fun..." autocomplete="off">
+                </div>
+
+                <!-- Bouton Retour -->
+                <a href="index.html" class="btn-back">⬅ Fermer et revenir au sommaire</a>
+            </section>
+
+            <!-- PAGE DROITE : Liste des Commandes Fun -->
+            <section class="book-page right">
+                <h3>Farces & Célébrations</h3>
+                
+                <div class="commands-container">
+                    
+                    <!-- Commande !lurk -->
+                    <div class="command-card">
+                        <div class="command-info">
+                            <span class="trigger">!lurk</span>
+                            <span class="description">Envoyer automatiquement un message de soutien bienveillant lorsque vous partez dans l'ombre.</span>
+                        </div>
+                        <button class="btn-copy" data-command="!lurk">📋 Copier</button>
+                    </div>
+
+                    <!-- Commande !gg -->
+                    <div class="command-card">
+                        <div class="command-info">
+                            <span class="trigger">!gg</span>
+                            <span class="description">Afficher l'emote GG triomphante accompagnée de l'avatar de Rozuya.</span>
+                        </div>
+                        <button class="btn-copy" data-command="!gg">📋 Copier</button>
+                    </div>
+
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2026 Rozuya • Le Grimoire des Commandes Twitch</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
