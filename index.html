@@ -10,50 +10,33 @@
     <meta name="keywords" content="Rozuya, Twitch, Commandes, Grimoire, Stream, Discord, Chat, Fantasy">
     <meta name="theme-color" content="#9146FF">
     
-    <!-- Open Graph (Discord, Facebook, etc.) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Le Grimoire de Rozuya • Commandes Twitch">
     <meta property="og:description" content="Découvrez l'ensemble des commandes magiques utilisables sur le stream de Rozuya.">
-    <meta property="og:image" content="assets/book-cover.png">
 
-    <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Le Grimoire de Rozuya • Commandes Twitch">
-    <meta property="twitter:description" content="Découvrez l'ensemble des commandes magiques utilisables sur le stream de Rozuya.">
-
-    <!-- Fichiers de style et favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Fichiers de style -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Système de particules en arrière-plan -->
+    <!-- Système de particules -->
     <canvas id="magic-canvas"></canvas>
-    
-    <!-- Curseur plume magique -->
     <div id="custom-cursor"></div>
-    
-    <!-- Zone de notifications (Toasts) -->
     <div id="toast-container" class="notification-container"></div>
 
-    <!-- Conteneur Principal du Grimoire -->
     <main class="main-container">
         <div class="grimoire">
             
-            <!-- PAGE GAUCHE : Présentation Mystique -->
+            <!-- PAGE GAUCHE -->
             <section class="book-page left">
                 <h1>Le Grimoire</h1>
                 <h2>Des Commandes</h2>
                 
-                <!-- Blason Magique SVG (Évite d'avoir une image manquante au départ) -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="130" height="130" style="filter: drop-shadow(0 0 12px #9146FF); margin: 30px auto; display: block;">
-                    <!-- Cercle runique externe -->
                     <circle cx="50" cy="50" r="44" fill="none" stroke="#d4af37" stroke-width="2" stroke-dasharray="6 3" />
-                    <!-- Cercle magique interne -->
                     <circle cx="50" cy="50" r="38" fill="none" stroke="#9146FF" stroke-width="1.5" />
-                    <!-- Couronne runique (Symbole Rozuya) -->
                     <path d="M32 68 L40 38 L50 52 L60 38 L68 68 Z" fill="none" stroke="#d4af37" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-                    <!-- Étoiles et scintillements -->
                     <polygon points="50,18 52,25 59,27 52,29 50,36 48,29 41,27 48,25" fill="#d4af37"/>
                     <circle cx="26" cy="38" r="2.5" fill="#9146FF" />
                     <circle cx="74" cy="38" r="2.5" fill="#9146FF" />
@@ -64,7 +47,7 @@
                 </p>
             </section>
 
-            <!-- PAGE DROITE : Sommaire / Menu de Navigation -->
+            <!-- PAGE DROITE -->
             <nav class="book-page right">
                 <h3>Sommaire</h3>
                 <div class="menu-grid">
@@ -78,12 +61,10 @@
         </div>
     </main>
 
-    <!-- Pied de page -->
     <footer>
         <p>© 2026 Rozuya • Le Grimoire des Commandes Twitch</p>
     </footer>
 
-    <!-- Script logique -->
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
