@@ -1,5 +1,5 @@
 /* ==========================================
-   STYLE GÉNÉRAL DU GRIMOIRE (CLEAN)
+   POLICES & DESIGN GLOBAL
    ========================================== */
 * {
     box-sizing: border-box;
@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #0d0614;
+    background-color: #0d0614; /* Fond violet mystique très sombre */
     font-family: 'Philosopher', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -19,7 +19,7 @@ body {
     color: #1a0f05;
 }
 
-/* Canvas des particules */
+/* Canvas des particules magiques d'arrière-plan */
 #magic-canvas {
     position: fixed;
     top: 0;
@@ -42,61 +42,170 @@ body {
     padding: 20px;
 }
 
-/* Le Livre Grimoire */
+/* ==========================================
+   LE LIVRE GRIMOIRE
+   ========================================== */
 .grimoire {
-    background: #f4ecd8;
+    background: #f4ecd8; /* Effet parchemin */
     border: 8px solid #3a2a18;
-    outline: 2px solid #d4af37;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 40px rgba(145, 70, 255, 0.2);
+    outline: 2px solid #d4af37; /* Liseré doré */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 40px rgba(145, 70, 255, 0.25);
     border-radius: 12px;
     display: flex;
     width: 100%;
-    max-width: 900px;
-    min-height: 550px;
+    max-width: 950px;
+    min-height: 580px;
     position: relative;
 }
 
+/* Pliure centrale du livre */
 .grimoire::after {
     content: '';
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 4px;
+    width: 6px;
     height: 100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.15), rgba(0,0,0,0.3), rgba(0,0,0,0.15));
-    border-left: 1px solid rgba(74, 59, 44, 0.4);
-    border-right: 1px solid rgba(74, 59, 44, 0.4);
+    background: linear-gradient(to right, rgba(0,0,0,0.15), rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+    border-left: 1px solid rgba(74, 59, 44, 0.3);
+    border-right: 1px solid rgba(74, 59, 44, 0.3);
     pointer-events: none;
 }
 
-/* Pages */
+/* Pages du livre */
 .book-page {
     flex: 1;
-    padding: 40px;
+    padding: 40px 35px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    max-height: 564px;
 }
 
 .book-page.left {
     border-right: 1px dashed rgba(74, 59, 44, 0.2);
+    align-items: center;
+    text-align: center;
 }
 
-/* Typographie */
-h1 { font-family: 'Cinzel', serif; font-size: 2.2rem; color: #4a3b2c; text-align: center; text-transform: uppercase; }
-h2 { font-family: 'Cinzel', serif; font-size: 1.4rem; color: #9146FF; text-align: center; margin-bottom: 5px; letter-spacing: 2px; }
-h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #4a3b2c; text-align: center; border-bottom: 2px double rgba(74, 59, 44, 0.3); padding-bottom: 10px; margin-bottom: 30px; }
+.book-page.right {
+    overflow-y: auto; /* Permet de scroller sur les commandes si la liste est longue */
+}
 
-/* Menu */
-.menu-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; }
+/* Customisation de la barre de défilement parchemin */
+.book-page.right::-webkit-scrollbar {
+    width: 6px;
+}
+.book-page.right::-webkit-scrollbar-track {
+    background: rgba(74, 59, 44, 0.05);
+}
+.book-page.right::-webkit-scrollbar-thumb {
+    background: #3a2a18;
+    border-radius: 3px;
+}
+
+/* ==========================================
+   TYPOGRAPHIE & ICONOGRAPHIE
+   ========================================== */
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #4a3b2c;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: #9146FF; /* Violet magique Twitch */
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: #4a3b2c;
+    text-align: center;
+    border-bottom: 2px double rgba(74, 59, 44, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.grimoire-emblem {
+    filter: drop-shadow(0 0 10px rgba(145, 70, 255, 0.3));
+    margin: 15px auto;
+}
+
+.grimoire-intro {
+    color: #4a3b2c;
+    font-style: italic;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   INTERACTIONS & BARRES DE RECHERCHE
+   ========================================== */
+.search-container {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid rgba(74, 59, 44, 0.4);
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 0.95rem;
+    color: #1a0f05;
+    outline: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #9146FF;
+    box-shadow: 0 0 8px rgba(145, 70, 255, 0.2);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.back-link {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: #9146FF;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #4a3b2c;
+}
+
+/* ==========================================
+   SOMMAIRE (INDEX)
+   ========================================== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 10px;
+}
 
 .menu-item {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 14px;
-    background: rgba(74, 59, 44, 0.05);
+    background: rgba(74, 59, 44, 0.04);
     border: 1px solid rgba(74, 59, 44, 0.3);
     border-radius: 6px;
     color: #4a3b2c;
@@ -104,7 +213,7 @@ h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #4a3b2c; text-align
     font-family: 'Cinzel', serif;
     font-weight: bold;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 .menu-item:hover {
@@ -112,8 +221,119 @@ h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #4a3b2c; text-align
     color: #ffffff;
     border-color: #9146FF;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(145, 70, 255, 0.35);
 }
 
+/* ==========================================
+   LISTE DES PARCHEMINS (COMMANDES)
+   ========================================== */
+.command-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.command-card {
+    background: rgba(74, 59, 44, 0.03);
+    border: 1px solid rgba(74, 59, 44, 0.2);
+    border-radius: 6px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.2s ease;
+}
+
+.command-card:hover {
+    border-color: rgba(145, 70, 255, 0.4);
+    background: rgba(145, 70, 255, 0.02);
+}
+
+.command-details {
+    flex: 1;
+}
+
+.command-trigger {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    color: #9146FF;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.command-desc {
+    font-size: 0.9rem;
+    color: #4a3b2c;
+    line-height: 1.4;
+}
+
+/* Boutons Copier */
+.copy-btn {
+    background: #3a2a18;
+    color: #f4ecd8;
+    border: 1px solid #d4af37;
+    padding: 6px 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background: #9146FF;
+    border-color: #9146FF;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================
+   SYSTÈME DE TOAST (NOTIFICATIONS MAGIQUES)
+   ========================================== */
+.toast-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background: #1a0f05;
+    color: #f4ecd8;
+    border: 1.5px solid #d4af37;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideIn 0.3s forwards, fadeOut 0.3s 2.2s forwards;
+}
+
+@keyframes slideIn {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* ==========================================
+   FOOTER & RESPONSIVE
+   ========================================== */
 footer {
     position: relative;
     z-index: 2;
@@ -126,7 +346,18 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .grimoire { flex-direction: column; min-height: auto; }
-    .grimoire::after { display: none; }
-    .book-page.left { border-right: none; border-bottom: 1px dashed rgba(74, 59, 44, 0.2); }
+    .grimoire {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .grimoire::after {
+        display: none;
+    }
+    .book-page.left {
+        border-right: none;
+        border-bottom: 1px dashed rgba(74, 59, 44, 0.2);
+    }
+    .book-page {
+        max-height: none;
+    }
 }
