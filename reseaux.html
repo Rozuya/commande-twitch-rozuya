@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réseaux • Le Grimoire de Rozuya</title>
+    
+    <!-- SEO & Métadonnées de Partage -->
+    <meta name="description" content="Découvrez et copiez les incantations pour rejoindre les réseaux sociaux de Rozuya.">
+    <meta name="keywords" content="Rozuya, Twitch, Discord, YouTube, Instagram, Commandes, Grimoire">
+    <meta name="theme-color" content="#9146FF">
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Réseaux • Le Grimoire de Rozuya">
+    <meta property="og:description" content="Les commandes de discussion pour retrouver Rozuya sur ses différents réseaux.">
+    <meta property="og:image" content="assets/book-cover.png">
+
+    <!-- Fichiers de style et favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Système de particules en arrière-plan -->
+    <canvas id="magic-canvas"></canvas>
+    
+    <!-- Curseur plume magique -->
+    <div id="custom-cursor"></div>
+    
+    <!-- Zone de notifications (Toasts) -->
+    <div id="toast-container" class="notification-container"></div>
+
+    <!-- Conteneur Principal du Grimoire -->
+    <main class="main-container">
+        <div class="grimoire">
+            
+            <!-- PAGE GAUCHE : Recherche et thématique -->
+            <section class="book-page left">
+                <h1>🌐 Réseaux</h1>
+                <h2>Invocations Sociales</h2>
+                
+                <!-- Blason Céleste SVG (Thème Réseaux/Monde) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" style="filter: drop-shadow(0 0 10px rgba(145,70,255,0.3)); margin: 25px auto; display: block;">
+                    <!-- Cercle runique externe -->
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4 2" />
+                    <!-- Globe céleste magique -->
+                    <circle cx="50" cy="50" r="32" fill="none" stroke="#9146FF" stroke-width="2" />
+                    <!-- Lignes de latitude/longitude magiques -->
+                    <path d="M18 50 Q50 20 82 50 Q50 80 18 50 Z" fill="none" stroke="#9146FF" stroke-width="1" />
+                    <path d="M50 18 Q35 50 50 82 Q65 50 50 18 Z" fill="none" stroke="#9146FF" stroke-width="1" />
+                    <line x1="18" y1="50" x2="82" y2="50" stroke="#d4af37" stroke-width="1.5" />
+                    <line x1="50" y1="18" x2="50" y2="82" stroke="#d4af37" stroke-width="1.5" />
+                    <!-- Scintillements -->
+                    <circle cx="50" cy="50" r="3" fill="#d4af37" />
+                </svg>
+
+                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-bottom: 25px; line-height: 1.6; padding: 0 10px;">
+                    "Saisis un mot-clé ci-dessous pour filtrer instantanément les parchemins de nos avant-postes sur la toile."
+                </p>
+
+                <!-- Barre de recherche interactive -->
+                <div class="search-container">
+                    <input type="text" id="search-commands" class="search-bar" placeholder="Rechercher une commande..." autocomplete="off">
+                </div>
+
+                <!-- Bouton Retour -->
+                <a href="index.html" class="btn-back">⬅ Fermer et revenir au sommaire</a>
+            </section>
+
+            <!-- PAGE DROITE : Liste des Commandes Réseaux -->
+            <section class="book-page right">
+                <h3>Les Parchemins</h3>
+                
+                <div class="commands-container">
+                    
+                    <!-- Commande !rs -->
+                    <div class="command-card">
+                        <div class="command-info">
+                            <span class="trigger">!rs</span>
+                            <span class="description">Affiche l'intégralité de mes réseaux sociaux actifs.</span>
+                        </div>
+                        <button class="btn-copy" data-command="!rs">📋 Copier</button>
+                    </div>
+
+                    <!-- Commande !discord -->
+                    <div class="command-card">
+                        <div class="command-info">
+                            <span class="trigger">!discord</span>
+                            <span class="description">Obtenir le lien d'accès au serveur communautaire Discord.</span>
+                        </div>
+                        <button class="btn-copy" data-command="!discord">📋 Copier</button>
+                    </div>
+
+                    <!-- Commande !ytb -->
+                    <div class="command-card">
+                        <div class="command-info">
+                            <span class="trigger">!ytb</span>
+                            <span class="description">Découvrir les vidéos sur ma chaîne officielle YouTube.</span>
+                        </div>
+                        <button class="btn-copy" data-command="!ytb">📋 Copier</button>
+                    </div>
+
+                    <!-- Commande !insta -->
+                    <div class="command-card">
+                        <div class="command-info">
+                            <span class="trigger">!insta</span>
+                            <span class="description">Suivre mes aventures quotidiennes en images sur Instagram.</span>
+                        </div>
+                        <button class="btn-copy" data-command="!insta">📋 Copier</button>
+                    </div>
+
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2026 Rozuya • Le Grimoire des Commandes Twitch</p>
+    </footer>
+
+    <!-- Script logique -->
+    <script src="js/script.js"></script>
+</body>
+</html>
