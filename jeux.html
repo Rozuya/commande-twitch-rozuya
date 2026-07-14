@@ -31,51 +31,31 @@
                 </svg>
 
                 <p class="grimoire-intro">
-                    "Tente ta chance aux jeux du chat, parie tes points d'expérience ou provoque tes rivaux en duel singulier."
+                    "Découvre comment rejoindre mes parties en live et viens affronter le maître du grimoire !"
                 </p>
 
                 <div class="search-container">
-                    <input type="text" id="search-commands" class="search-input" placeholder="Rechercher un mini-jeu...">
+                    <input type="text" id="search-commands" class="search-input" placeholder="Rechercher une commande...">
                 </div>
 
                 <a href="index.html" class="back-link">⬅ Fermer et revenir au sommaire</a>
             </section>
 
-            <!-- PAGE DROITE : LISTE -->
+            <!-- PAGE DROITE : LISTE DES COMMANDES -->
             <section class="book-page right">
-                <h3>Jeux de Dés & Combats</h3>
+                <h3>Les Parchemins</h3>
                 
                 <div class="command-list">
-                    <div class="command-card">
+                    <div class="command-card" style="align-items: flex-start; padding: 18px;">
                         <div class="command-details">
-                            <div class="command-trigger">!points</div>
-                            <div class="command-desc">Vérifie le solde de ton compte de pièces d'or accumulées sur le live.</div>
+                            <div class="command-trigger" style="margin-bottom: 10px;">!play</div>
+                            <div class="command-desc" style="font-size: 0.95rem; line-height: 1.6;">
+                                ✨ Pour jouer avec moi, c'est simple !<br><br>
+                                Rejoignez le Discord en tapant la commande : <strong>!discord</strong><br><br>
+                                C'est là que tout se passe pour les files d'attente et les parties ! 🎮
+                            </div>
                         </div>
-                        <button class="copy-btn" data-command="!points">Copier</button>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="command-details">
-                            <div class="command-trigger">!gamble</div>
-                            <div class="command-desc">Mise une partie de ton or pour tenter de doubler ta cagnotte au dé.</div>
-                        </div>
-                        <button class="copy-btn" data-command="!gamble [mise]">Copier</button>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="command-details">
-                            <div class="command-trigger">!duel</div>
-                            <div class="command-desc">Provoque un spectateur dans une lutte acharnée pour lui dérober de l'or.</div>
-                        </div>
-                        <button class="copy-btn" data-command="!duel [pseudo]">Copier</button>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="command-details">
-                            <div class="command-trigger">!slots</div>
-                            <div class="command-desc">Fais tourner la machine à sous magique pour tenter de remporter le gros lot.</div>
-                        </div>
-                        <button class="copy-btn" data-command="!slots">Copier</button>
+                        <button class="copy-btn" data-command="!play" style="align-self: center;">Copier</button>
                     </div>
                 </div>
             </section>
