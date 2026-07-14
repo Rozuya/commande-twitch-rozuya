@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Grimoire de Rozuya • Commandes Twitch</title>
     
-    <!-- SEO & Métadonnées de Partage -->
     <meta name="description" content="Explorez le Grimoire interactif et magique de Rozuya. Trouvez et copiez instantanément toutes les commandes du chat Twitch.">
     <meta name="keywords" content="Rozuya, Twitch, Commandes, Grimoire, Stream, Discord, Chat, Fantasy">
     <meta name="theme-color" content="#9146FF">
     
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Le Grimoire de Rozuya • Commandes Twitch">
     <meta property="og:description" content="Découvrez l'ensemble des commandes magiques utilisables sur le stream de Rozuya.">
 
-    <!-- Fichiers de style principal -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Styles de la Direction Artistique (DA) du Lecteur Magique -->
     <style>
         /* Cadre du Lecteur Magique */
         .audio-player {
@@ -132,20 +128,16 @@
 </head>
 <body>
 
-    <!-- Lecteur audio pointant vers ton fichier de musique qui marche -->
     <audio id="background-music" loop preload="auto">
         <source src="l-eveil-du-grimoire.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Système de particules -->
     <canvas id="magic-canvas"></canvas>
-    <div id="custom-cursor"></div>
     <div id="toast-container" class="notification-container"></div>
 
     <main class="main-container">
         <div class="grimoire">
             
-            <!-- PAGE GAUCHE -->
             <section class="book-page left">
                 <h1>Le Grimoire</h1>
                 <h2>Des Commandes</h2>
@@ -163,7 +155,6 @@
                     "Aventurier du chat, explore les chapitres de ce grimoire ancestral pour invoquer les pouvoirs et commandes du royaume de Rozuya."
                 </p>
 
-                <!-- LECTEUR DE MUSIQUE INTERACTIF (VERSION DA GRIMOIRE) -->
                 <div class="audio-player">
                     <button id="play-pause-btn" type="button" title="Jouer / Pause">▶</button>
                     <input type="range" id="volume-slider" min="0" max="100" value="15" title="Volume">
@@ -171,7 +162,6 @@
                 </div>
             </section>
 
-            <!-- PAGE DROITE -->
             <nav class="book-page right">
                 <h3>Sommaire</h3>
                 <div class="menu-grid">
@@ -189,10 +179,8 @@
         <p>© 2026 Rozuya • Le Grimoire des Commandes Twitch</p>
     </footer>
 
-    <!-- Script principal (particules, curseur, etc.) -->
     <script src="script.js"></script>
 
-    <!-- Script magique de contrôle audio -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const audio = document.getElementById("background-music");
@@ -206,7 +194,7 @@
                 audio.volume = volumeSlider.value / 100;
                 volumePercent.textContent = volumeSlider.value + "%";
 
-                // Play / Pause au clic (avec les beaux symboles épurés)
+                // Play / Pause au clic
                 playPauseBtn.addEventListener("click", (e) => {
                     e.stopPropagation(); 
                     
