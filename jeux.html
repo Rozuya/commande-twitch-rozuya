@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeux • Le Grimoire de Rozuya</title>
+    
+    <!-- SEO & Métadonnées de Partage -->
+    <meta name="description" content="Découvrez les commandes de jeu et quêtes interactives du chat Twitch de Rozuya.">
+    <meta name="keywords" content="Rozuya, Twitch, Jeux, Gaming, Commandes, Grimoire">
+    <meta name="theme-color" content="#9146FF">
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jeux • Le Grimoire de Rozuya">
+    <meta property="og:description" content="Les commandes de quêtes et défis vidéoludiques de Rozuya.">
+    <meta property="og:image" content="assets/book-cover.png">
+
+    <!-- Fichiers de style et favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Système de particules en arrière-plan -->
+    <canvas id="magic-canvas"></canvas>
+    
+    <!-- Curseur plume magique -->
+    <div id="custom-cursor"></div>
+    
+    <!-- Zone de notifications (Toasts) -->
+    <div id="toast-container" class="notification-container"></div>
+
+    <!-- Conteneur Principal du Grimoire -->
+    <main class="main-container">
+        <div class="grimoire">
+            
+            <!-- PAGE GAUCHE : Recherche et thématique -->
+            <section class="book-page left">
+                <h1>🎮 Jeux</h1>
+                <h2>Quêtes & Défis</h2>
+                
+                <!-- Blason Épée et Manette SVG (Thème Gaming / Fantasy) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" style="filter: drop-shadow(0 0 10px rgba(145,70,255,0.3)); margin: 25px auto; display: block;">
+                    <!-- Cercle runique externe -->
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="6 3" />
+                    <!-- Silhouette épée légendaire -->
+                    <path d="M50 15 L53 35 L51 35 L51 75 L49 75 L49 35 L47 35 Z" fill="#d4af37" />
+                    <rect x="44" y="75" width="12" height="3" rx="1" fill="#d4af37" />
+                    <rect x="48" y="78" width="4" height="8" rx="1" fill="#d4af37" />
+                    <!-- Manette magique superposée -->
+                    <path d="M30 45 C30 40, 40 38, 50 38 C60 38, 70 40, 70 45 C70 55, 65 65, 58 65 C54 65, 52 60, 50 60 C48 60, 46 65, 42 65 C35 65, 30 55, 30 45 Z" fill="none" stroke="#9146FF" stroke-width="2.5" stroke-linejoin="round" />
+                    <!-- Touches de la manette -->
+                    <circle cx="38" cy="48" r="2.5" fill="#9146FF" />
+                    <circle cx="62" cy="48" r="2.5" fill="#d4af37" />
+                    <!-- Éclairs d'énergie magique -->
+                    <path d="M22 28 L28 32 L24 38" fill="none" stroke="#9146FF" stroke-width="1.5" stroke-linecap="round" />
+                    <path d="M78 28 L72 32 L76 38" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+
+                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-bottom: 25px; line-height: 1.6; padding: 0 10px;">
+                    "Maîtrise les commandes de jeu pour participer aux défis en direct ou défier d'autres aventuriers du chat."
+                </p>
+
+                <!-- Barre de recherche (Prête pour les futures commandes) -->
+                <div class="search-container">
+                    <input type="text" id="search-commands" class="search-bar" placeholder="Rechercher une quête..." autocomplete="off">
+                </div>
+
+                <!-- Bouton Retour -->
+                <a href="index.html" class="btn-back">⬅ Fermer et revenir au sommaire</a>
+            </section>
+
+            <!-- PAGE DROITE : Liste des Commandes de Jeux -->
+            <section class="book-page right" style="justify-content: center; align-items: center;">
+                
+                <!-- CONTENEUR DES COMMANDES (Vide mais prêt à l'emploi) -->
+                <!-- Pour ajouter une commande plus tard, retirez l'affichage d'état d'attente ci-dessous 
+                     et insérez vos blocs de classe "command-card" à l'intérieur de ce conteneur. -->
+                <div class="commands-container" style="width: 100%; display: none;">
+                    
+                    <!-- EXEMPLE DE COMMANDE (A activer en retirant le style display:none ci-dessus et en l'adaptant)
+                    <div class="command-card">
+                        <div class="command-info">
+                            <span class="trigger">!play</span>
+                            <span class="description">Rejoindre la file d'attente de la partie en cours.</span>
+                        </div>
+                        <button class="btn-copy" data-command="!play">📋 Copier</button>
+                    </div>
+                    -->
+                    
+                </div>
+
+                <!-- État d'attente immersif (S'affiche tant que la liste est vide) -->
+                <div id="no-commands-placeholder" style="text-align: center; color: var(--text-dark); opacity: 0.85; animation: fadeInPage 0.8s ease;">
+                    <div style="font-size: 3.5rem; margin-bottom: 15px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); transform: scale(1.05);">🎮</div>
+                    <p style="font-family: 'Cinzel Decorative', serif; font-weight: bold; font-size: 1.15rem; color: #1a0f05; margin-bottom: 8px;">
+                        Aucune commande disponible
+                    </p>
+                    <p style="font-size: 0.95rem; font-style: italic; color: #5a4b3c; max-width: 250px; margin: 0 auto; line-height: 1.5;">
+                        Les parchemins de cette section seront gravés lors des prochains exploits de Rozuya.
+                    </p>
+                </div>
+
+            </section>
+            
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2026 Rozuya • Le Grimoire des Commandes Twitch</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
