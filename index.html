@@ -1,204 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Grimoire de Rozuya • Commandes Twitch</title>
+    
+    <!-- SEO & Métadonnées de Partage -->
+    <meta name="description" content="Explorez le Grimoire interactif et magique de Rozuya. Trouvez et copiez instantanément toutes les commandes du chat Twitch.">
+    <meta name="keywords" content="Rozuya, Twitch, Commandes, Grimoire, Stream, Discord, Chat, Fantasy">
+    <meta name="theme-color" content="#9146FF">
+    
+    <!-- Open Graph (Discord, Facebook, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Le Grimoire de Rozuya • Commandes Twitch">
+    <meta property="og:description" content="Découvrez l'ensemble des commandes magiques utilisables sur le stream de Rozuya.">
+    <meta property="og:image" content="assets/book-cover.png">
 
-<title>Commandes Twitch - Rozuya</title>
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Le Grimoire de Rozuya • Commandes Twitch">
+    <meta property="twitter:description" content="Découvrez l'ensemble des commandes magiques utilisables sur le stream de Rozuya.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
-}
-
-body{
-    background:#0e0e10;
-    color:white;
-    background-image:radial-gradient(circle at top,#9147ff33,transparent 45%);
-}
-
-header{
-    text-align:center;
-    padding:60px 20px;
-}
-
-header h1{
-    font-size:52px;
-    color:#9146FF;
-    font-weight:800;
-}
-
-header p{
-    margin-top:12px;
-    color:#b9b9b9;
-    font-size:18px;
-}
-
-.container{
-    width:min(1200px,95%);
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-    gap:25px;
-    padding-bottom:60px;
-}
-
-.card{
-    background:#18181b;
-    border:2px solid #2b2b30;
-    border-radius:18px;
-    padding:25px;
-    transition:.25s;
-    box-shadow:0 0 20px rgba(0,0,0,.35);
-}
-
-.card:hover{
-    transform:translateY(-6px);
-    border-color:#9146FF;
-    box-shadow:0 0 25px rgba(145,70,255,.45);
-}
-
-.command{
-    display:inline-block;
-    background:#9146FF;
-    padding:8px 16px;
-    border-radius:8px;
-    font-size:20px;
-    font-weight:700;
-    margin-bottom:18px;
-}
-
-.response{
-    color:#e8e8e8;
-    line-height:1.8;
-    word-break:break-word;
-}
-
-a{
-    color:#bf94ff;
-    text-decoration:none;
-}
-
-a:hover{
-    text-decoration:underline;
-}
-
-footer{
-    margin-top:30px;
-    border-top:1px solid #2b2b30;
-    padding:35px;
-    text-align:center;
-    color:#8d8d8d;
-}
-
-@media(max-width:700px){
-
-header h1{
-    font-size:38px;
-}
-
-header p{
-    font-size:16px;
-}
-
-.container{
-    grid-template-columns:1fr;
-}
-
-}
-
-</style>
-
+    <!-- Fichiers de style et favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
+    <!-- Système de particules en arrière-plan -->
+    <canvas id="magic-canvas"></canvas>
+    
+    <!-- Curseur plume magique -->
+    <div id="custom-cursor"></div>
+    
+    <!-- Zone de notifications (Toasts) -->
+    <div id="toast-container" class="notification-container"></div>
 
-<h1>🎮 Commandes Twitch Rozuya</h1>
+    <!-- Conteneur Principal du Grimoire -->
+    <main class="main-container">
+        <div class="grimoire">
+            
+            <!-- PAGE GAUCHE : Présentation Mystique -->
+            <section class="book-page left">
+                <h1>Le Grimoire</h1>
+                <h2>Des Commandes</h2>
+                
+                <!-- Blason Magique SVG (Évite d'avoir une image manquante au départ) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="130" height="130" style="filter: drop-shadow(0 0 12px #9146FF); margin: 30px auto; display: block;">
+                    <!-- Cercle runique externe -->
+                    <circle cx="50" cy="50" r="44" fill="none" stroke="#d4af37" stroke-width="2" stroke-dasharray="6 3" />
+                    <!-- Cercle magique interne -->
+                    <circle cx="50" cy="50" r="38" fill="none" stroke="#9146FF" stroke-width="1.5" />
+                    <!-- Couronne runique (Symbole Rozuya) -->
+                    <path d="M32 68 L40 38 L50 52 L60 38 L68 68 Z" fill="none" stroke="#d4af37" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+                    <!-- Étoiles et scintillements -->
+                    <polygon points="50,18 52,25 59,27 52,29 50,36 48,29 41,27 48,25" fill="#d4af37"/>
+                    <circle cx="26" cy="38" r="2.5" fill="#9146FF" />
+                    <circle cx="74" cy="38" r="2.5" fill="#9146FF" />
+                </svg>
 
-<p>Retrouve toutes les commandes disponibles sur mon stream Twitch.</p>
+                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-top: 20px; line-height: 1.7; padding: 0 15px;">
+                    "Aventurier du chat, tourne les pages de cet artefact ancestral pour invoquer les pouvoirs et commandes du royaume de Rozuya."
+                </p>
+            </section>
 
-</header>
+            <!-- PAGE DROITE : Sommaire / Menu de Navigation -->
+            <nav class="book-page right">
+                <h3>Sommaire</h3>
+                <div class="menu-grid">
+                    <a href="reseaux.html" class="menu-item">🌐 Réseaux</a>
+                    <a href="infos.html" class="menu-item">ℹ️ Infos</a>
+                    <a href="fun.html" class="menu-item">😂 Fun</a>
+                    <a href="jeux.html" class="menu-item">🎮 Jeux</a>
+                </div>
+            </nav>
+            
+        </div>
+    </main>
 
-<div class="container">
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2026 Rozuya • Le Grimoire des Commandes Twitch</p>
+    </footer>
 
-<div class="card">
-<div class="command">!rs</div>
-<div class="response">
-<a href="https://guns.lol/rozuya" target="_blank">
-https://guns.lol/rozuya
-</a>
-</div>
-</div>
-
-<div class="card">
-<div class="command">!taf</div>
-<div class="response">
-Animateur en maison de quartier, j'accompagne les jeunes à travers des projets, des ateliers et des activités pour créer du lien et partager des expériences.
-</div>
-</div>
-
-<div class="card">
-<div class="command">!lurk</div>
-<div class="response">
-👀 Merci pour le lurk ! Installe-toi confortablement, et merci pour ton soutien — ta présence compte énormément. ❤️
-</div>
-</div>
-
-<div class="card">
-<div class="command">!discord</div>
-<div class="response">
-<a href="https://discord.gg/sP5fC3hjB3" target="_blank">
-https://discord.gg/sP5fC3hjB3
-</a>
-</div>
-</div>
-
-<div class="card">
-<div class="command">!gg</div>
-<div class="response">
-Affiche l'emoji <strong>GG</strong> avec l'avatar de <strong>Rozuya</strong>.
-</div>
-</div>
-
-<div class="card">
-<div class="command">!epic</div>
-<div class="response">
-Mon Pseudo Epic : <strong>7 SHINZŌ</strong>
-</div>
-</div>
-
-<div class="card">
-<div class="command">!ytb</div>
-<div class="response">
-<a href="https://www.youtube.com/channel/UCVvejq1t1B1h1yPj80U6v0Q" target="_blank">
-Voici ma chaîne YouTube
-</a>
-</div>
-</div>
-
-<div class="card">
-<div class="command">!insta</div>
-<div class="response">
-<a href="https://www.instagram.com/_nakatsuuuu_" target="_blank">
-Mon Instagram
-</a>
-</div>
-</div>
-
-</div>
-
-<footer>
-
-© 2026 Rozuya • Commandes Twitch
-
-</footer>
-
+    <!-- Script logique -->
+    <script src="js/script.js"></script>
 </body>
 </html>
