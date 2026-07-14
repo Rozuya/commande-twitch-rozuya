@@ -20,6 +20,9 @@
 </head>
 <body>
 
+    <!-- Ton fichier audio avec son vrai nom -->
+    <audio id="background-music" loop src="L'Éveil du Grimoire.mp3"></audio>
+
     <!-- Système de particules -->
     <canvas id="magic-canvas"></canvas>
     <div id="custom-cursor"></div>
@@ -33,7 +36,7 @@
                 <h1>Le Grimoire</h1>
                 <h2>Des Commandes</h2>
                 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="130" height="130" style="filter: drop-shadow(0 0 12px #9146FF); margin: 30px auto; display: block;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="130" height="130" style="filter: drop-shadow(0 0 12px #9146FF); margin: 20px auto 10px auto; display: block;">
                     <circle cx="50" cy="50" r="44" fill="none" stroke="#d4af37" stroke-width="2" stroke-dasharray="6 3" />
                     <circle cx="50" cy="50" r="38" fill="none" stroke="#9146FF" stroke-width="1.5" />
                     <path d="M32 68 L40 38 L50 52 L60 38 L68 68 Z" fill="none" stroke="#d4af37" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
@@ -42,10 +45,16 @@
                     <circle cx="74" cy="38" r="2.5" fill="#9146FF" />
                 </svg>
 
-                <!-- Message d'introduction adapté (sans mention de tourner les pages) -->
-                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-top: 20px; line-height: 1.7; padding: 0 15px;">
+                <p style="color: #4a3b2c; font-style: italic; text-align: center; margin-top: 10px; line-height: 1.6; padding: 0 15px; font-size: 0.95rem;">
                     "Aventurier du chat, explore les chapitres de ce grimoire ancestral pour invoquer les pouvoirs et commandes du royaume de Rozuya."
                 </p>
+
+                <!-- LECTEUR DE MUSIQUE INTERACTIF (ON/OFF + VOLUME %) -->
+                <div class="audio-player">
+                    <button id="play-pause-btn" title="Jouer / Pause">▶️</button>
+                    <input type="range" id="volume-slider" min="0" max="100" value="15" title="Volume">
+                    <span id="volume-percent">15%</span>
+                </div>
             </section>
 
             <!-- PAGE DROITE -->
