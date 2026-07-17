@@ -15,6 +15,7 @@
     <main class="main-container">
         <div class="grimoire">
             
+            <!-- PAGE GAUCHE : RECHERCHE -->
             <section class="book-page left">
                 <h1>ℹ️ Infos</h1>
                 <h2>Savoirs du Royaume</h2>
@@ -28,7 +29,7 @@
                 </svg>
 
                 <p class="grimoire-intro">
-                    "Consulte les parchemins d'informations pour interagir avec la taverne ou soutenir l'aventure de Rozuya."
+                    "Consulte les parchemins d'informations pour interagir avec la taverne, soutenir le live ou découvrir des récits mystérieux."
                 </p>
 
                 <div class="search-container">
@@ -38,10 +39,12 @@
                 <a href="index.html" class="back-link">⬅ Fermer et revenir au sommaire</a>
             </section>
 
+            <!-- PAGE DROITE : LISTE DES COMMANDES -->
             <section class="book-page right">
                 <h3>Les Informations</h3>
                 
                 <div class="command-list">
+                    <!-- COMMANDE : !DON -->
                     <div class="command-card">
                         <div class="command-details">
                             <div class="command-trigger">!don</div>
@@ -50,12 +53,22 @@
                         <button class="copy-btn" data-command="!don">Copier</button>
                     </div>
 
+                    <!-- COMMANDE : !LURK -->
                     <div class="command-card">
                         <div class="command-details">
                             <div class="command-trigger">!lurk</div>
                             <div class="command-desc">S'éclipser discrètement dans l'ombre pour soutenir le live en silence tout en restant occupé. 🥷</div>
                         </div>
                         <button class="copy-btn" data-command="!lurk">Copier</button>
+                    </div>
+
+                    <!-- COMMANDE : !HOL -->
+                    <div class="command-card">
+                        <div class="command-details">
+                            <div class="command-trigger">!hol</div>
+                            <div class="command-desc">Découvre l'univers mystérieux de House of Laura, un manga original inspiré de la streameuse House of Laura. 📖✨</div>
+                        </div>
+                        <button class="copy-btn" data-command="!hol">Copier</button>
                     </div>
                 </div>
             </section>
